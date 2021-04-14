@@ -1,23 +1,32 @@
-package com.example.android.firstweekchallenge
+package com.example.android.firstweekchallenge.ui.view
 
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.android.firstweekchallenge.R
+import com.example.android.firstweekchallenge.data.Account
+import com.example.android.firstweekchallenge.data.DataStore
 import com.example.android.firstweekchallenge.databinding.ActivityLoginBinding
+import com.example.android.firstweekchallenge.ui.viewmodel.InfoViewModel
+import com.example.android.firstweekchallenge.ui.viewmodel.MainViewModelFactory
 
-class LoginAcitvity : AppCompatActivity() {
+class LogInAcitvity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var infoViewModel: InfoViewModel
+    private lateinit var viewModelFactory: MainViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupViewModel()
+        setupObserver()
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         val intentSignUpActivity = Intent(this, SignUpActivity::class.java)
         val intentProfileActivity = Intent(this, ProfileActivity::class.java)
 
@@ -37,7 +46,7 @@ class LoginAcitvity : AppCompatActivity() {
                 startActivity(intentProfileActivity)
                 //finish()
             } else {
-                val alertDialogBuilder = android.app.AlertDialog.Builder(this@LoginAcitvity)
+                val alertDialogBuilder = android.app.AlertDialog.Builder(this@LogInAcitvity)
                 alertDialogBuilder.setMessage("failed login!")
                 alertDialogBuilder.setPositiveButton("OK") {
                         dialog: DialogInterface,
@@ -50,5 +59,27 @@ class LoginAcitvity : AppCompatActivity() {
             }
             }
         }
+    }
+
+    fun onClickEdtEmail(view: View) {
+        infoViewModel.setEmail(binding.edtEmail.text.toString())
+    }
+    fun onClickEdtPassword(view: View) {
+        infoViewModel.password.value = binding.edtPassword.text.toString()
+    }
+
+    private fun setupViewModel() {
+        val account = Account("","","")
+        viewModelFactory = MainViewModelFactory(account, "")
+        infoViewModel = ViewModelProvider(this, viewModelFactory).get(InfoViewModel::class.java)
+    }
+
+    private fun setupObserver() {
+        infoViewModel.account.observe(this, {
+            binding.edtEmail.setText(it.email)
+        })
+        infoViewModel.password.observe(this, {
+            binding.edtPassword.setText(it)
+        })
     }
 }

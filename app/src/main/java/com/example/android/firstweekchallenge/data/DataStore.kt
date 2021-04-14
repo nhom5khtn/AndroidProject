@@ -1,4 +1,4 @@
-package com.example.android.firstweekchallenge
+package com.example.android.firstweekchallenge.data
 
 
 //**                      **
@@ -11,7 +11,7 @@ public class DataStore private constructor(){
         println("Initialize account ... ")
     }
 
-    private object Holder {val account = DataStore()}
+    private object Holder {val account = DataStore() }
 
     companion object {
         var fullName:String?="";
@@ -20,7 +20,7 @@ public class DataStore private constructor(){
         var phoneNumber:String?="";
 
 
-        fun getInstance():DataStore {
+        fun getInstance(): DataStore {
             return Holder.account
         }
 

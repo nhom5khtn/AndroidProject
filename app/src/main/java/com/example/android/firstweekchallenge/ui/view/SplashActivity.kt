@@ -1,4 +1,4 @@
-package com.example.android.firstweekchallenge
+package com.example.android.firstweekchallenge.ui.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
+import com.example.android.firstweekchallenge.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         // 5 seconds splash
         Handler().postDelayed({
             // start onboard one activity
-            startActivity(Intent(this@SplashActivity, Onboarding_oneActivity::class.java))
+            startActivity(Intent(this@SplashActivity, OnboardingOneActivity::class.java))
             finish()
 
         }, 5000)

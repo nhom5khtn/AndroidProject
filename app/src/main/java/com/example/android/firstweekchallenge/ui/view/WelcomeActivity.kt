@@ -1,4 +1,4 @@
-package com.example.android.firstweekchallenge
+package com.example.android.firstweekchallenge.ui.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
-import android.view.View
 import android.widget.TextView
-import android.view.ViewTreeObserver.OnPreDrawListener
+import com.example.android.firstweekchallenge.R
+
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class WelcomeActivity : AppCompatActivity() {
 
 
         epButton.setOnClickListener {
-            val intent = Intent(this@WelcomeActivity, LoginAcitvity::class.java)
+            val intent = Intent(this@WelcomeActivity, LogInAcitvity::class.java)
             startActivity(intent)
         }
     }

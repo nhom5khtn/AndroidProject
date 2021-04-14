@@ -52,6 +52,7 @@
                 android:layout_marginTop="9dp"
                 android:background="@drawable/button_shape_1"
                 android:elevation="5dp"
+                android:onClick="onClickEdtFullName"
                 app:backgroundTint="@color/white" />
 
             <TextView
@@ -72,6 +73,7 @@
                 android:layout_marginTop="9dp"
                 android:background="@drawable/button_shape_1"
                 android:elevation="5dp"
+                android:onClick="onClickEdtEmail"
                 app:backgroundTint="@color/white" />
 
             <TextView
@@ -93,6 +95,7 @@
                 android:background="@drawable/button_shape_1"
                 android:elevation="5dp"
                 android:inputType="textPassword"
+                android:onClick="onClickEdtPassword"
                 app:backgroundTint="@color/white" />
 
         </RelativeLayout>

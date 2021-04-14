@@ -5,7 +5,7 @@
     <data>
         <variable
             name="datastore"
-            type="com.example.android.firstweekchallenge.DataStore" />
+            type="com.example.android.firstweekchallenge.data.DataStore" />
 
     </data>
 
@@ -20,23 +20,29 @@
         <com.google.android.material.button.MaterialButton
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="51dp"
             android:background="@drawable/button_shape_1"
             android:drawableLeft="@drawable/arrow_icon"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="108dp"
             android:layout_height="108dp"
-            android:layout_marginStart="148dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/button_shape_circle"
             android:src="@drawable/avatar"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,34 +50,39 @@
         <ImageButton
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginStart="212dp"
             android:layout_marginTop="188dp"
+            android:layout_marginBottom="47dp"
             android:background="@drawable/button_shape_circle"
-            android:src="@drawable/camera_ic"
             android:elevation="5dp"
+            android:src="@drawable/camera_ic"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.594"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_marginTop="22dp"
-            android:text="Ronaldo"
-            android:textSize="20sp"
-            android:textAllCaps="false"
+            android:layout_marginBottom="56dp"
             android:fontFamily="@font/sofia_pro_semi_bold"
-            android:textColor="@color/black"
             android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
         <Button
+            android:id="@+id/button2"
             android:layout_width="88dp"
             android:layout_height="28dp"
+            android:enabled="false"
             android:fontFamily="@font/sofia_pro_regular"
             android:paddingLeft="0dp"
             android:paddingTop="0dp"
@@ -82,28 +93,32 @@
             android:textAllCaps="false"
             android:textColor="#8E8888"
             android:textSize="12sp"
-            android:enabled="false"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintVertical_bias="0.0" />
 
         <RelativeLayout
+            android:id="@+id/relativeLayout4"
             android:layout_width="341dp"
             android:layout_height="337dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="64dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.827">
 
             <TextView
                 android:id="@+id/tvFullName"
-                android:text="Full name"
-                android:fontFamily="@font/sofia_pro_regular"
-                android:textSize="16sp"
                 android:layout_width="106dp"
-                android:layout_height="21dp" />
+                android:layout_height="21dp"
+                android:fontFamily="@font/sofia_pro_regular"
+                android:text="Full name"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/edtFullName"
@@ -113,43 +128,43 @@
                 android:layout_marginTop="13dp"
                 android:background="@drawable/button_shape_1"
                 android:elevation="5dp"
-                android:maxLines="1"
-                android:lines="1"
-                android:text="@{datastore.Companion.fullName}"
                 android:focusableInTouchMode="false"
+                android:lines="1"
+                android:maxLines="1"
                 android:onClick="withEdtFullName"
                 app:backgroundTint="@color/white" />
 
             <TextView
                 android:id="@+id/tvEmail"
-                android:text="E-mail"
-                android:fontFamily="@font/sofia_pro_regular"
-                android:textSize="16sp"
-                android:layout_marginTop="21dp"
                 android:layout_width="106dp"
                 android:layout_height="21dp"
-                android:layout_below="@+id/edtFullName" />
+                android:layout_below="@+id/edtFullName"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/sofia_pro_regular"
+                android:text="E-mail"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/edtEmail"
                 android:layout_width="339dp"
                 android:layout_height="65dp"
+                android:layout_below="@+id/tvEmail"
                 android:layout_marginTop="9dp"
                 android:background="@drawable/button_shape_1"
                 android:elevation="5dp"
-                android:text="@{datastore.Companion.email}"
-                android:layout_below="@+id/tvEmail"
+                android:focusableInTouchMode="false"
+                android:onClick="withEdtEmail"
                 app:backgroundTint="@color/white" />
 
             <TextView
                 android:id="@+id/tvPhone"
-                android:text="Phone Number"
-                android:fontFamily="@font/sofia_pro_regular"
-                android:textSize="16sp"
-                android:layout_marginTop="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
-                android:layout_below="@+id/edtEmail" />
+                android:layout_below="@+id/edtEmail"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/sofia_pro_regular"
+                android:text="Phone Number"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/edtPhone"
@@ -159,6 +174,7 @@
                 android:layout_marginTop="9dp"
                 android:background="@drawable/button_shape_1"
                 android:elevation="5dp"
+                android:focusableInTouchMode="false"
                 android:onClick="withEdtPhone"
                 app:backgroundTint="@color/white" />
 

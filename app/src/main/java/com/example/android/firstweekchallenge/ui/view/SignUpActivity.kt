@@ -1,25 +1,32 @@
-package com.example.android.firstweekchallenge
+package com.example.android.firstweekchallenge.ui.view
 
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.renderscript.ScriptGroup
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.android.firstweekchallenge.R
+import com.example.android.firstweekchallenge.data.Account
+import com.example.android.firstweekchallenge.data.DataStore
 import com.example.android.firstweekchallenge.databinding.ActivitySignupBinding
+import com.example.android.firstweekchallenge.ui.viewmodel.InfoViewModel
+import com.example.android.firstweekchallenge.ui.viewmodel.MainViewModelFactory
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
+    private lateinit var infoViewModel: InfoViewModel
+    private lateinit var viewModelFactory: MainViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_signup)
-        val intent = Intent(this, LoginAcitvity::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_signup)
+        val intent = Intent(this, LogInAcitvity::class.java)
+        setupViewModel()
+        setupObserver()
 
         binding.apply {
             btnSignUp.setOnClickListener {
@@ -36,10 +43,9 @@ class SignUpActivity : AppCompatActivity() {
 
             if (edtFullName.text.trim().toString() != "" && edtEmail.text.trim().toString() != "" && edtPassword.text.trim().toString() != ""){
 
-                DataStore.fullName = edtFullName.text.trim().toString();
-                DataStore.email = edtEmail.text.trim().toString();
-                DataStore.password = edtPassword.text.trim().toString();
-
+                DataStore.fullName = edtFullName.text.trim().toString()
+                DataStore.email = edtEmail.text.trim().toString()
+                DataStore.password = edtPassword.text.trim().toString()
                 Toast.makeText(applicationContext, "successful sign up!", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
                 //finish()
@@ -53,9 +59,34 @@ class SignUpActivity : AppCompatActivity() {
                 alertDialogBuilder.show()
             }
         }}
-
     }
 
+    fun onClickEdtEmail(view: View) {
+        infoViewModel.setEmail(binding.edtEmail.text.toString())
+    }
+    fun onClickEdtFullName(view: View) {
+        infoViewModel.setFullName(binding.edtFullName.text.toString())
+
+    }
+    fun onClickEdtPassword(view: View) {
+        infoViewModel.password.value = binding.edtPassword.text.toString()
+    }
+
+    private fun setupViewModel() {
+        val account = Account("","","")
+        viewModelFactory = MainViewModelFactory(account, "")
+        infoViewModel = ViewModelProvider(this, viewModelFactory).get(InfoViewModel::class.java)
+    }
+
+    private fun setupObserver() {
+        infoViewModel.account.observe(this, {
+            binding.edtEmail.setText(it.email)
+            binding.edtFullName.setText(it.fullName)
+        })
+        infoViewModel.password.observe(this, {
+            binding.edtPassword.setText(it)
+        })
+    }
 //    override fun onStart() {
 //        super.onStart()
 //        Log.e("SignUpActivity", "sign up activity - on start")

@@ -1,4 +1,4 @@
-package com.example.android.firstweekchallenge
+package com.example.android.firstweekchallenge.ui.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import com.example.android.firstweekchallenge.R
 
-class Onboarding_twoActivity : AppCompatActivity() {
+class OnboardingTwoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding_two)
@@ -19,7 +20,7 @@ class Onboarding_twoActivity : AppCompatActivity() {
         val t2 = findViewById<TextView>(R.id.textView5)
 
         btn1.setOnClickListener(){
-            val intent = Intent(this@Onboarding_twoActivity, Onboarding_threeActivity::class.java)
+            val intent = Intent(this@OnboardingTwoActivity, OnboardingThreeActivity::class.java)
             startActivity(intent)
         }
     }

@@ -8,7 +8,7 @@
     <data>
         <variable
             name="datastore"
-            type="com.example.android.firstweekchallenge.DataStore" />
+            type="com.example.android.firstweekchallenge.data.DataStore" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
