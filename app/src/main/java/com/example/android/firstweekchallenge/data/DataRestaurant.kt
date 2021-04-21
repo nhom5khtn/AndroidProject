@@ -1,6 +1,5 @@
 package com.example.android.firstweekchallenge.data
 
-import androidx.appcompat.app.AppCompatActivity
 
 
 fun getData() :List<Restaurant> {

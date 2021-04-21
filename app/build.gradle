@@ -38,7 +38,10 @@ android {
     }
 
 }
-
+repositories {
+    mavenCentral()
+    google()
+}
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
