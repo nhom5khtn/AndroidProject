@@ -31,34 +31,61 @@ class SignUpActivity : AppCompatActivity() {
         binding.apply {
             btnSignUp.setOnClickListener {
 
-            if (edtFullName.text.trim().toString().isNullOrEmpty()) {
-                edtFullName.setError("enter full name please!");
-            }
-            if (edtEmail.text.trim().toString().isNullOrEmpty()) {
-                edtEmail.setError("enter email please!");
-            }
-            if (edtPassword.text.trim().toString().isNullOrEmpty()) {
-                edtPassword.setError("enter password please!");
-            }
-
-            if (edtFullName.text.trim().toString() != "" && edtEmail.text.trim().toString() != "" && edtPassword.text.trim().toString() != ""){
-
-                DataStore.fullName = edtFullName.text.trim().toString()
-                DataStore.email = edtEmail.text.trim().toString()
-                DataStore.password = edtPassword.text.trim().toString()
-                Toast.makeText(applicationContext, "successful sign up!", Toast.LENGTH_SHORT).show()
-                startActivity(intent)
-                //finish()
-            }else{
-                val alertDialogBuilder = android.app.AlertDialog.Builder(this@SignUpActivity)
-                alertDialogBuilder.setMessage("failed sign up!")
-                alertDialogBuilder.setPositiveButton("OK") { dialog: DialogInterface,
-                                                             which: Int ->
-                    Toast.makeText(applicationContext, "please try again!", Toast.LENGTH_SHORT).show()
+                //Check validation the filled information
+                var invalidFlag:Boolean = false;
+                val emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\\.[a-zA-Z.]{2,18}".toRegex();
+                val passwordPattern1 = "[a-z]{8,32}".toRegex()
+                val passwordPattern2 = "[!|@|#|$|%|^|&|*|(|)|-|_|+|=]".toRegex()
+                val passwordPattern3 = "[A-Z]".toRegex()
+                val passwordPattern4 = "[0-9]".toRegex()
+                if(emailPattern.matches(edtEmail.text.trim().toString())){
+                    invalidFlag = false;
                 }
-                alertDialogBuilder.show()
-            }
-        }}
+
+                else {
+                    edtEmail.setError("The email is invalid");
+                    invalidFlag = true;
+                }
+
+                if(passwordPattern1.containsMatchIn(edtPassword.text.trim().toString())
+                    &&passwordPattern2.containsMatchIn(edtPassword.text.trim().toString())
+                    &&passwordPattern3.containsMatchIn(edtPassword.text.trim().toString())
+                    &&passwordPattern4.containsMatchIn(edtPassword.text.trim().toString())){
+                    invalidFlag = false;
+                }
+                else{
+                    edtPassword.setError("The password is invalid");
+                    invalidFlag = true;
+                }
+
+                if (edtFullName.text.trim().toString().isNullOrEmpty()) {
+                    edtFullName.setError("enter full name please!");
+                }
+                if (edtEmail.text.trim().toString().isNullOrEmpty()) {
+                    edtEmail.setError("enter email please!");
+                }
+                if (edtPassword.text.trim().toString().isNullOrEmpty()) {
+                    edtPassword.setError("enter password please!");
+                }
+
+                if (edtFullName.text.trim().toString() != "" && edtEmail.text.trim().toString() != "" && edtPassword.text.trim().toString() != "" && invalidFlag == false){
+
+                    DataStore.fullName = edtFullName.text.trim().toString()
+                    DataStore.email = edtEmail.text.trim().toString()
+                    DataStore.password = edtPassword.text.trim().toString()
+                    Toast.makeText(applicationContext, "successful sign up!", Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
+                    //finish()
+                }else{
+                    val alertDialogBuilder = android.app.AlertDialog.Builder(this@SignUpActivity)
+                    alertDialogBuilder.setMessage("failed sign up!")
+                    alertDialogBuilder.setPositiveButton("OK") { dialog: DialogInterface,
+                                                                 which: Int ->
+                        Toast.makeText(applicationContext, "please try again!", Toast.LENGTH_SHORT).show()
+                    }
+                    alertDialogBuilder.show()
+                }
+            }}
     }
 
     fun onClickEdtEmail(view: View) {
