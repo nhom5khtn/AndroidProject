@@ -23,12 +23,13 @@ class LogInAcitvity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_listrestaurant)
         setupViewModel()
         setupObserver()
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         val intentSignUpActivity = Intent(this, SignUpActivity::class.java)
-        val intentProfileActivity = Intent(this, ProfileActivity::class.java)
+        val intentListRestaurantActivity = Intent(this, ListRestaurantActivity::class.java)
 
         binding.btnSignUp.setOnClickListener {
             startActivity(intentSignUpActivity)
@@ -43,7 +44,7 @@ class LogInAcitvity : AppCompatActivity() {
             }
             if (binding.edtEmail.text.trim().toString() == DataStore.email && binding.edtPassword.text.trim().toString() == DataStore.password) {
                 Toast.makeText(applicationContext, "successful login!", Toast.LENGTH_SHORT).show()
-                startActivity(intentProfileActivity)
+                startActivity(intentListRestaurantActivity)
                 //finish()
             } else {
                 val alertDialogBuilder = android.app.AlertDialog.Builder(this@LogInAcitvity)
