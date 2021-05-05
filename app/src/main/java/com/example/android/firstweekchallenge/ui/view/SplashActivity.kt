@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
+import com.example.android.firstweekchallenge.MainActivity
 import com.example.android.firstweekchallenge.R
 
 class SplashActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         // 5 seconds splash
         Handler().postDelayed({
             // start onboard one activity
-            startActivity(Intent(this@SplashActivity, OnboardingOneActivity::class.java))
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             finish()
 
         }, 5000)
