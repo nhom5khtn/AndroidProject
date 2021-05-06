@@ -122,7 +122,6 @@
             android:layout_height="33dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnLogin"
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="@+id/btnSignUp"
             app:layout_constraintTop_toBottomOf="@+id/btnSignUp">
