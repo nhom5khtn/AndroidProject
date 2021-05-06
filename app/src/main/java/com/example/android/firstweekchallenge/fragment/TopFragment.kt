@@ -20,11 +20,11 @@ class TopFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        adapter = RestaurantAdapter()
+        adapter = RestaurantAdapter(false)
         val view = inflater.inflate(R.layout.fragment_top, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rcList)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = RestaurantAdapter()
+        adapter = RestaurantAdapter(false)
         recyclerView.adapter = adapter
         adapter.submitList(getData())
         return view

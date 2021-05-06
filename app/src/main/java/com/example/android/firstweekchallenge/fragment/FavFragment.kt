@@ -20,11 +20,11 @@ class FavFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        adapter = RestaurantAdapter()
+        adapter = RestaurantAdapter(true)
         val view = inflater.inflate(R.layout.fragment_fav, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rcHeartList)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = RestaurantAdapter()
+        recyclerView.adapter = RestaurantAdapter(true)
         recyclerView.adapter = adapter
         adapter.submitList(DataRestaurant.queryData())
         return view
