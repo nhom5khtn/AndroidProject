@@ -31,13 +31,13 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
         <activity android:name=".MainActivity" />
-        <activity android:name=".ui.view.OnboardingThreeActivity" />
-        <activity android:name=".ui.view.OnboardingTwoActivity" />
-        <activity android:name=".ui.view.OnboardingOneActivity" />
-        <activity android:name=".ui.view.WelcomeActivity" />
-        <activity android:name=".ui.view.LogInAcitvity" />
-        <activity android:name=".ui.view.SignUpActivity" />
-        <activity android:name=".ui.view.ProfileActivity" />
+<!--        <activity android:name=".ui.view.OnboardingThreeActivity" />-->
+<!--        <activity android:name=".ui.view.OnboardingTwoActivity" />-->
+<!--        <activity android:name=".ui.view.OnboardingOneActivity" />-->
+<!--        <activity android:name=".ui.view.WelcomeActivity" />-->
+<!--        <activity android:name=".ui.view.LogInAcitvity" />-->
+<!--        <activity android:name=".ui.view.SignUpActivity" />-->
+<!--        <activity android:name=".ui.view.ProfileActivity" />-->
         <activity
             android:name=".ui.view.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

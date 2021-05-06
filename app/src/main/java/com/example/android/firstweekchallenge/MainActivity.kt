@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import com.example.android.firstweekchallenge.fragment.OnBoardingOneFragment
+import com.example.android.firstweekchallenge.fragment.RestaurantFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add<OnBoardingOneFragment>(R.id.frag_container_view)
+            add<RestaurantFragment>(R.id.frag_container_view)
         }
 
     }
