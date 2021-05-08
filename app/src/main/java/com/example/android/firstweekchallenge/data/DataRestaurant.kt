@@ -1,7 +1,25 @@
 package com.example.android.firstweekchallenge.data
 
 
+class DataRestaurant () {
+    companion object{
+        var listResStoredHeart: MutableList<Restaurant> = mutableListOf()
+        fun storeData(restaurant: Restaurant){
+            listResStoredHeart.add(restaurant)
+        }
+        fun removeData(name: String){
+            listResStoredHeart.forEach{
+                if(it.name == name) {
+                    listResStoredHeart.remove(it)
+                }
+            }
+        }
+        fun queryData(): List<Restaurant>{
+            return listResStoredHeart.toList()
+        }
+    }
 
+}
 fun getData() :List<Restaurant> {
     return listOf(
         Restaurant("Du Miên Garden Cafe - Phan Văn Trị",

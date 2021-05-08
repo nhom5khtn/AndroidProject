@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FoodHub</string>
+    <string name="app_name">FirstWeekChallenge</string>
     <string name="hint_email">Your email or phone</string>
     <string name="hint_password">Password</string>
     <string name="title_activity_login">LoginActivity</string>

@@ -11,6 +11,8 @@ public class DataStore private constructor(){
         println("Initialize account ... ")
     }
 
+    private object Holder {val account = DataStore() }
+
     companion object {
         var fullName:String?="";
         var email:String?="";
@@ -18,10 +20,21 @@ public class DataStore private constructor(){
         var phoneNumber:String?="";
 
 
+        fun getInstance(): DataStore {
+            return Holder.account
+        }
+
         init{
             println("Account(email='$email', fullName='$fullName', password='$password')")
         }
 
+
+
     }
 
 }
+
+//object DataStore {
+//    fun dataStore(){
+//        print("DataStore")
+//    }
