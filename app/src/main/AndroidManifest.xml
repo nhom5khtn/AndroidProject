@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.firstweekchallenge">
 
-          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
-       <uses-permission android:name="android.permission.INTERNET" />-->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,20 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstWeekChallenge">
+<!--        <activity android:name=".fragment.LogInFragment">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-        <activity android:name=".ui.view.OnboardingThreeActivity"></activity>
-        <activity android:name=".ui.view.OnboardingTwoActivity" />
-        <activity android:name=".ui.view.OnboardingOneActivity" />
-        <activity android:name=".ui.view.WelcomeActivity"/>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        <activity android:name=".fragment.SignUpFragment">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-        <activity android:name=".ui.view.LogInAcitvity"/>
-        <activity android:name=".ui.view.SignUpActivity"/>
-        <activity android:name=".ui.view.ProfileActivity" />
-        <activity android:name=".ui.view.ListRestaurantActivity" />
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        <activity android:name=".fragment.WelcomeFragment">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <activity android:name=".MainActivity" />
+<!--        <activity android:name=".ui.view.OnboardingThreeActivity" />-->
+<!--        <activity android:name=".ui.view.OnboardingTwoActivity" />-->
+<!--        <activity android:name=".ui.view.OnboardingOneActivity" />-->
+<!--        <activity android:name=".ui.view.WelcomeActivity" />-->
+<!--        <activity android:name=".ui.view.LogInAcitvity" />-->
+<!--        <activity android:name=".ui.view.SignUpActivity" />-->
+<!--        <activity android:name=".ui.view.ProfileActivity" />-->
         <activity
             android:name=".ui.view.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,9 +48,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>
