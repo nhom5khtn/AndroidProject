@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.android.firstweekchallenge.R
 import com.example.android.firstweekchallenge.data.DataRestaurant
 import com.example.android.firstweekchallenge.data.RestaurantAdapter
-import com.example.android.firstweekchallenge.data.getData
 
 class FavFragment : Fragment() {
     private lateinit var adapter: RestaurantAdapter
@@ -21,7 +20,7 @@ class FavFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         adapter = RestaurantAdapter(true)
-        val view = inflater.inflate(R.layout.fragment_fav, container, false)
+        val view = inflater.inflate(R.layout.fragment_nowPlaying, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rcHeartList)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = RestaurantAdapter(true)
