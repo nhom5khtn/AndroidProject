@@ -34,7 +34,7 @@ class RestaurantFragment : Fragment() {
         btn2.setOnClickListener {
             childFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<FavFragment>(R.id.nav_host_fragment)
+                replace<`R.layout.fragment_fav`>(R.id.nav_host_fragment)
                 addToBackStack(null)
             }
         }

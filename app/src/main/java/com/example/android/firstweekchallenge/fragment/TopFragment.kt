@@ -21,7 +21,7 @@ class TopFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         adapter = RestaurantAdapter(false)
-        val view = inflater.inflate(R.layout.fragment_rated, container, false)
+        val view = inflater.inflate(R.layout.fragment_top, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rcList)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         adapter = RestaurantAdapter(false)
