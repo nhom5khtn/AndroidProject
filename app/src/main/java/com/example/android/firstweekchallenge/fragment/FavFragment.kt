@@ -20,7 +20,7 @@ class FavFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         adapter = RestaurantAdapter(true)
-        val view = inflater.inflate(R.layout.fragment_nowPlaying, container, false)
+        val view = inflater.inflate(R.layout.fragment_fav, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rcHeartList)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = RestaurantAdapter(true)
