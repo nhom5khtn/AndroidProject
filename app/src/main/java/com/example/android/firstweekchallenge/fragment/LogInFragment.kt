@@ -33,7 +33,7 @@ class LogInFragment : Fragment() {
         button.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<RestaurantFragment>(R.id.frag_container_view)
+                replace<RestaurantFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }
@@ -41,7 +41,7 @@ class LogInFragment : Fragment() {
         _button.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<SignUpFragment>(R.id.frag_container_view)
+                replace<SignUpFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }

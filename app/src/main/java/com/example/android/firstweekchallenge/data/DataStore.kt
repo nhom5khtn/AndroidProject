@@ -1,5 +1,7 @@
 package com.example.android.firstweekchallenge.data
 
+import com.example.android.firstweekchallenge.movie.MovieResp
+
 
 //**                      **
 //**      SINGLETON       **
@@ -18,7 +20,6 @@ public class DataStore private constructor(){
         var email:String?="";
         var password:String?="";
         var phoneNumber:String?="";
-
 
         fun getInstance(): DataStore {
             return Holder.account

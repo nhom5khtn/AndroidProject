@@ -27,7 +27,7 @@ class OnBoardingTwoFragment : Fragment() {
         button.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<OnBoardingThreeFragment>(R.id.frag_container_view)
+                replace<OnBoardingThreeFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }

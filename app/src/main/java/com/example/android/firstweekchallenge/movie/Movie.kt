@@ -1,5 +1,6 @@
 package com.example.android.firstweekchallenge.movie
 
+import com.example.android.firstweekchallenge.data.Restaurant
 import com.google.gson.annotations.SerializedName
 
 data class Movie (
@@ -29,7 +30,20 @@ data class Movie (
     val voteAverage: Double? = null,
     @SerializedName("vote_count")
     val voteCount: Long? = null
-)
+){
+    override fun equals(other: Any?): Boolean {
+        if(this === other) return true
+        if(javaClass != other?.javaClass) return false
+
+        other as Movie
+
+        if(title != other.title) return false
+        if(originalTitle != other.originalTitle) return false
+        if(backdropPath != other.backdropPath) return false
+
+        return true
+    }
+}
 
 enum class OriginalLanguage {
     En,

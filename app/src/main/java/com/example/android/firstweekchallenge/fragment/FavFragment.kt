@@ -11,7 +11,7 @@ import com.example.android.firstweekchallenge.R
 import com.example.android.firstweekchallenge.data.DataRestaurant
 import com.example.android.firstweekchallenge.data.RestaurantAdapter
 
-class `R.layout.fragment_fav` : Fragment() {
+class FavFragment : Fragment() {
     private lateinit var adapter: RestaurantAdapter
 
     override fun onCreateView(

@@ -1,39 +1,41 @@
 package com.example.android.firstweekchallenge
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
-import com.example.android.firstweekchallenge.data.getData
 import com.example.android.firstweekchallenge.databinding.ActivityMainBinding
 import com.example.android.firstweekchallenge.fragment.OnBoardingOneFragment
-import com.example.android.firstweekchallenge.fragment.RestaurantFragment
-import com.example.android.firstweekchallenge.ui.MovieAdapter
+import com.example.android.firstweekchallenge.ui.viewmodel.NowPlayingViewModel
+import com.example.android.firstweekchallenge.ui.viewmodel.TopRatedViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
+    private lateinit var nowPlayingViewModel: NowPlayingViewModel
+    private lateinit var topRatedViewModel: TopRatedViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this ,R.layout.activity_main)
-        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-        val adapter = MovieAdapter()
-        binding.rcList.adapter = adapter
-        adapter.data = getData()        // cho nay getdata() tu danh sach du lieu get tu api
-
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add<OnBoardingOneFragment>(R.id.frag_container_view)
-        }
+        nowPlayingViewModel = ViewModelProvider(this).get(NowPlayingViewModel::class.java)
+        topRatedViewModel = ViewModelProvider(this).get(TopRatedViewModel::class.java)
     }
-
     override fun onStart() {
         super.onStart()
-        mainViewModel.getNowPlaying()
-        mainViewModel.getTopRated()
+        Log.e("onStart", " ")
+        nowPlayingViewModel.getNowPlaying()
+        topRatedViewModel.getTopRated()
     }
-
+    override fun onResume() {
+        super.onResume()
+        Log.e("onResume", " ")
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            //add<OnBoardingOneFragment>(R.id.fragment_container_view)
+            add<OnBoardingOneFragment>(R.id.fragment_container_view)
+        }
+    }
 }

@@ -32,7 +32,7 @@ class SignUpFragment : Fragment() {
         button.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<LogInFragment>(R.id.frag_container_view)
+                replace<LogInFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }

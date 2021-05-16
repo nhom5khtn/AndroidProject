@@ -37,7 +37,7 @@ class RestaurantAdapter(isHeart: Boolean): ListAdapter<Restaurant, RestaurantAda
         holder.bind(itemRestaurant)
     }
 
-    class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvName = itemView.findViewById<TextView>(R.id.tvName)
         val txAddress = itemView.findViewById<TextView>(R.id.tvAddress)
         val imAvatar = itemView.findViewById<ImageView>(R.id.imageview)
